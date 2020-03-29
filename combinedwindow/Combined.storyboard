@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="yLc-3h-fGq">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="gyf-Z2-Lqy">
+            <objects>
+                <windowController id="yLc-3h-fGq" customClass="CombinedWindowController" customModule="PCars2RoughIdea" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Combined Telemetry" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JLp-fg-KfV">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="500" height="400"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="500" height="400"/>
+                        <connections>
+                            <outlet property="delegate" destination="yLc-3h-fGq" id="Ugp-cj-YBC"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="ATi-BQ-UAQ" kind="relationship" relationship="window.shadowedContentViewController" id="eef-Qq-cx6"/>
+                    </connections>
+                </windowController>
+                <customObject id="Zxq-P8-XV1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18" y="110"/>
+        </scene>
+        <!--Combined View Controller-->
+        <scene sceneID="quo-Al-kz2">
+            <objects>
+                <viewController id="ATi-BQ-UAQ" customClass="CombinedViewController" customModule="PCars2RoughIdea" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="JjQ-y8-djr">
+                        <rect key="frame" x="0.0" y="0.0" width="520" height="370"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XhY-dd-c80" userLabel="Mian Stack">
+                                <rect key="frame" x="0.0" y="10" width="520" height="360"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="OKq-jZ-nk5">
+                                        <rect key="frame" x="0.0" y="23" width="520" height="337"/>
+                                    </customView>
+                                    <slider toolTip="Shows location on race line." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gUE-1v-Pgg" userLabel="Track Slider">
+                                        <rect key="frame" x="8" y="-2" width="504" height="19"/>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" sliderType="linear" id="oYx-Hc-SRP"/>
+                                        <connections>
+                                            <action selector="trackSliderAction:" target="ATi-BQ-UAQ" id="Bfe-56-Bt3"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gUE-1v-Pgg" firstAttribute="leading" secondItem="XhY-dd-c80" secondAttribute="leading" constant="10" id="DvX-qR-CwE"/>
+                                    <constraint firstAttribute="trailing" secondItem="gUE-1v-Pgg" secondAttribute="trailing" constant="10" id="KnH-pS-CGy"/>
+                                    <constraint firstItem="OKq-jZ-nk5" firstAttribute="leading" secondItem="XhY-dd-c80" secondAttribute="leading" id="j7r-7d-Rqm"/>
+                                    <constraint firstAttribute="trailing" secondItem="OKq-jZ-nk5" secondAttribute="trailing" id="wyZ-Zx-mEd"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XhY-dd-c80" secondAttribute="trailing" id="goj-V1-fvb"/>
+                            <constraint firstItem="XhY-dd-c80" firstAttribute="leading" secondItem="JjQ-y8-djr" secondAttribute="leading" id="idp-ql-g0t"/>
+                            <constraint firstAttribute="bottom" secondItem="XhY-dd-c80" secondAttribute="bottom" constant="10" id="ufe-GN-pul"/>
+                            <constraint firstItem="XhY-dd-c80" firstAttribute="top" secondItem="JjQ-y8-djr" secondAttribute="top" id="vjs-QG-bkn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="combinedView" destination="OKq-jZ-nk5" id="AQ7-k5-9rr"/>
+                        <outlet property="trackSlider" destination="gUE-1v-Pgg" id="gHK-fF-6bW"/>
+                    </connections>
+                </viewController>
+                <customObject id="wvR-Ow-1WR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="85"/>
+        </scene>
+    </scenes>
+</document>

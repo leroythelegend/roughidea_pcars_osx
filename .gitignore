@@ -1,0 +1,21 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## User settings
+
+
+PCars2RoughIdea.xcodeproj/project.xcworkspace
+PCars2RoughIdea.xcodeproj/xcshareddata
+PCars2RoughIdea.xcodeproj/xcuserdata
+.DS_Store
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+pcars/.DS_Store
+pcars/Assets.xcassets/.DS_Store
+Resources/.DS_Store
+Resources/PCars2RoughIdea.help/Contents/.info.plist.swp
+PCars2RoughIdea.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+PCars2RoughIdea.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+PCars2RoughIdea.xcodeproj/xcshareddata/xcschemes/pcars.xcscheme
