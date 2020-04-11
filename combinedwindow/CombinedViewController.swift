@@ -17,6 +17,7 @@ class CombinedViewController: NSViewController {
     var horizontalLinesLayer: CAShapeLayer = CAShapeLayer()
     var verticalLineLayer: CAShapeLayer = CAShapeLayer()
     var textLayer: CATextLayer = CATextLayer()
+    var currentSliderValue: Float = 0;
     
     var textPos: CGPoint = CGPoint(x: 0, y: 0)
     
@@ -83,7 +84,10 @@ class CombinedViewController: NSViewController {
             }
             self.combinecGraphLines.graphLines.removeAll(where: { $0.isClosed })
             self.drawLines()
-            self.textLayer.removeFromSuperlayer()
+            let text = self.drawText(pos:  self.currentSliderValue)
+            DispatchQueue.main.async {
+                self.textLayer.string = text
+            }
         }
     }
     
@@ -109,6 +113,7 @@ class CombinedViewController: NSViewController {
     }
     
     @IBAction func trackSliderAction(_ sender: NSSlider) {
+        self.currentSliderValue = sender.floatValue
         let distance = UInt(self.combinecGraphLines.trackLength * sender.floatValue)
         guard let index = self.combinecGraphLines.distance.firstIndex(of: distance) else {
             DispatchQueue.main.async {
